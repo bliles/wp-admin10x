@@ -128,6 +128,11 @@ add_action('set_user_role', function($user_id, $role)  {
   }
 }, 10, 3);
 
+add_action('deleted_user', function($id, $reassign)  {
+  $a10x = new Admin10X();
+  $a10x->del_author($id);
+}, 10, 2);
+
 function admin10x_plugin_install() {
   $a10x = new Admin10X();
   $a10x->plugin_install();
