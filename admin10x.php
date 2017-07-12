@@ -61,7 +61,6 @@ class Admin10X {
   }
 
   public function plugin_uninstall() {
-    error_log('in the actual func');
     // the author users cache table data can easily be rebuilt so it's better to remove it on deactivate
     $sql = "DROP TABLE IF EXISTS {$this->authors_table}";
     $this->wpdb->query($sql);
@@ -139,7 +138,6 @@ function admin10x_plugin_install() {
 }
 
 function admin10x_plugin_uninstall() {
-  error_log('in the wrapper');
   $a10x = new Admin10X();
   $a10x->plugin_uninstall();
 }

@@ -1,5 +1,5 @@
 === Wordpress Admin10X ===
-Contributors: brandonliles
+Contributors: brandonliles, toddlevy
 Tags: admin, performance
 Requires at least: 4.7
 Tested up to: 4.7
