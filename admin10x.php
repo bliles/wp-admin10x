@@ -129,3 +129,8 @@ add_action('set_user_role', function($user_id, $role)  {
     $a10x->del_author($user_id);
   }
 }, 10, 3);
+
+add_action('deleted_user', function($id, $reassign)  {
+  $a10x = new Admin10X();
+  $a10x->del_author($id);
+}, 10, 2);
