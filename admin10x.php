@@ -28,9 +28,6 @@ class Admin10X {
     global $wpdb;
     $this->wpdb = $wpdb;
     $this->authors_table = $wpdb->prefix . "author_users";
-
-    register_activation_hook(__FILE__, array($this, 'plugin_install') );
-    register_deactivation_hook(__FILE__, array($this, 'plugin_uninstall'));
   }
 
   public function get_authors_table_name() {
@@ -64,6 +61,7 @@ class Admin10X {
   }
 
   public function plugin_uninstall() {
+    error_log('in the actual func');
     // the author users cache table data can easily be rebuilt so it's better to remove it on deactivate
     $sql = "DROP TABLE IF EXISTS {$this->authors_table}";
     $this->wpdb->query($sql);
@@ -113,7 +111,7 @@ add_action('pre_user_query', function($q) {
   $authors_table = $a10x->get_authors_table_name();
 
   $q->query_from  = "FROM {$authors_table} a
-                    INNER JOIN {$wpdb->users} 
+                    INNER JOIN {$wpdb->users}
                        ON ( {$wpdb->users}.ID = a.user_id )
                     INNER JOIN {$wpdb->usermeta}
                        ON ( {$wpdb->users}.ID = {$wpdb->usermeta}.user_id )";
@@ -129,3 +127,17 @@ add_action('set_user_role', function($user_id, $role)  {
     $a10x->del_author($user_id);
   }
 }, 10, 3);
+
+function admin10x_plugin_install() {
+  $a10x = new Admin10X();
+  $a10x->plugin_install();
+}
+
+function admin10x_plugin_uninstall() {
+  error_log('in the wrapper');
+  $a10x = new Admin10X();
+  $a10x->plugin_uninstall();
+}
+
+register_activation_hook(__FILE__, 'admin10x_plugin_install');
+register_deactivation_hook(__FILE__, 'admin10x_plugin_uninstall');
