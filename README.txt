@@ -22,6 +22,9 @@ Just install the plugin to your plugins directory and activate it.
 
 == Changelog ==
 
+= 1.0.2 =
+Removed debugging lines and add toddlevy as a contributor
+
 = 1.0.1 =
 Fixed plugin installation/uninstallation bugs.
 Support author removal, thanks toddlevy! (https://github.com/toddlevy)
