@@ -22,5 +22,10 @@ Just install the plugin to your plugins directory and activate it.
 
 == Changelog ==
 
+= 1.0.1 =
+Fixed plugin installation/uninstallation bugs.
+Support author removal, thanks toddlevy! (https://github.com/toddlevy)
+
 = 1.0 =
 Initial release.
+
