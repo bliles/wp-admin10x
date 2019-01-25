@@ -13,7 +13,7 @@
  * Plugin URI:  https://github.com/bliles/wp-admin10x
  * Description: Admin10X improves the performance of some admin features when your site has many registered users.
  * Author:      Brandon Liles
- * Version:     1.0.2
+ * Version:     1.0.3
  * License:     MIT (license.txt)
  */
 
