@@ -55,7 +55,6 @@ class Admin10X {
     $authors = get_users( $author_users_opt );
 
     foreach($authors as $author) {
-      error_log(json_encode($author->data));
       $this->add_author($author->data->ID);
     }
   }
